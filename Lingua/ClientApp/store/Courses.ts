@@ -21,22 +21,12 @@ interface CreateCourseSuccessAction {
 type KnownAction = ReceiveCoursesAction | CreateCourseSuccessAction;
 
 export const actionCreators = {
-	requestCourses: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
-		let fetchTask = fetch(`api/courses`)
-			.then(response => response.json() as Promise<Course[]>)
-			.then(data => {
-				dispatch({ type: 'RECEIVE_COURSES', courses: data });
-			});
-
+	requestCourses: (): AppThunkAction<KnownAction> => (dispatch, getState, lingua) => {
+		let fetchTask = lingua.GetCourses().then(response => dispatch({ type: 'RECEIVE_COURSES', courses: response.data }));
 		addTask(fetchTask);
 	},
-	createContext: (course: Course): AppThunkAction<KnownAction> => (dispatch, getState) => {
-		let fetchTask = fetch(`api/courses`, { 'method': 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(course) })
-			.then(response => response.json() as Promise<Course>)
-			.then(data => {
-				dispatch({ type: 'CREATE_COURSE_SUCCESS', course: data });
-			});
-
+	createContext: (course: Course): AppThunkAction<KnownAction> => (dispatch, getState, lingua) => {
+		let fetchTask = lingua.CreateCourse(course).then(response => dispatch({ type: 'CREATE_COURSE_SUCCESS', course: response.data }));
 		addTask(fetchTask);
 	}
 };
@@ -47,15 +37,9 @@ export const reducer: Reducer<CoursesState> = (state: CoursesState, incomingActi
 	const action = incomingAction as KnownAction;
 	switch (action.type) {
 		case 'RECEIVE_COURSES':
-			return {
-				courses: action.courses,
-				isLoading: false
-			};
+			return { courses: action.courses, isLoading: false };
 		case 'CREATE_COURSE_SUCCESS':
-			return {
-				...state,
-				courses: state.courses.concat(action.course)
-			};
+			return { ...state, courses: state.courses.concat(action.course)};
 		default:
 			const exhaustiveCheck: never = action;
 	}

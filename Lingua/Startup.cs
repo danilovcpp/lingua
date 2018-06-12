@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lingua.Models;
+using Lingua.Repositories;
 using Lingua.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,7 @@ namespace Lingua
 			var connection = Configuration.GetConnectionString("DefaultConnection");
 			services.AddDbContext<LinguaContext>(options => options.UseSqlServer(connection));
 
+			services.AddTransient<ICourseRepository, CourseRepository>();
 			services.AddTransient<ILinguaService, LinguaService>();
 
 			services.AddMvc();

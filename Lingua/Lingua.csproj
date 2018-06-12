@@ -28,6 +28,7 @@
     <None Remove="ClientApp\components\Menu.tsx" />
     <None Remove="ClientApp\containers\Courses.tsx" />
     <None Remove="ClientApp\models\Course.ts" />
+    <None Remove="ClientApp\services\Lingua.ts" />
     <None Remove="ClientApp\store\Courses.ts" />
   </ItemGroup>
 
@@ -38,6 +39,7 @@
     <TypeScriptCompile Include="ClientApp\components\Menu.tsx" />
     <TypeScriptCompile Include="ClientApp\containers\Courses.tsx" />
     <TypeScriptCompile Include="ClientApp\models\Course.ts" />
+    <TypeScriptCompile Include="ClientApp\services\Lingua.ts" />
     <TypeScriptCompile Include="ClientApp\store\Courses.ts" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as StoreModule from './store';
 import { ApplicationState, reducers } from './store';
 import { History } from 'history';
+import { Lingua } from './services/Lingua';
 
 export default function configureStore(history: History, initialState?: ApplicationState) {
 	// Build middleware. These are functions that can process the actions before they reach the store.
@@ -11,7 +12,7 @@ export default function configureStore(history: History, initialState?: Applicat
 	// If devTools is installed, connect to it
 	const devToolsExtension = windowIfDefined && windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__ as () => GenericStoreEnhancer;
 	const createStoreWithMiddleware = compose(
-		applyMiddleware(thunk, routerMiddleware(history)),
+		applyMiddleware(thunk.withExtraArgument(new Lingua()), routerMiddleware(history)),
 		devToolsExtension ? devToolsExtension() : <S>(next: StoreEnhancerStoreCreator<S>) => next
 	)(createStore);
 

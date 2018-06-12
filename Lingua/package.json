@@ -15,6 +15,7 @@
 		"@types/webpack-env": "1.13.0",
 		"@types/react-bootstrap": "0.32.9",
 		"@types/prop-types": "15.5.3",
+		"@types/axios": "0.14.0",
 		"aspnet-prerendering": "^3.0.1",
 		"aspnet-webpack": "^2.0.1",
 		"aspnet-webpack-react": "^3.0.0",
@@ -43,6 +44,8 @@
 		"webpack-hot-middleware": "2.18.2",
 		"webpack-merge": "4.1.0",
 		"react-bootstrap": "0.32.1",
-		"prop-types": "15.6.1"
+		"prop-types": "15.6.1",
+		"axios": "0.18.0",
+		"debug": "3.1.0"
 	}
 }

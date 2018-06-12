@@ -1,3 +1,4 @@
+import { Lingua } from '../services/Lingua';
 import * as Courses from './Courses';
 
 export interface ApplicationState {
@@ -9,5 +10,5 @@ export const reducers = {
 }
 
 export interface AppThunkAction<TAction> {
-	(dispatch: (action: TAction) => void, getState: () => ApplicationState): void;
+	(dispatch: (action: TAction) => void, getState: () => ApplicationState, lingua: Lingua): void;
 }
