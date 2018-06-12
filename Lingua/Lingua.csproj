@@ -22,13 +22,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\course\CoursePreview.tsx" />
+    <None Remove="ClientApp\components\course\index.ts" />
     <None Remove="ClientApp\components\Header.tsx" />
     <None Remove="ClientApp\components\Menu.tsx" />
+    <None Remove="ClientApp\containers\Courses.tsx" />
+    <None Remove="ClientApp\models\Course.ts" />
+    <None Remove="ClientApp\store\Courses.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\course\CoursePreview.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\course\index.ts" />
     <TypeScriptCompile Include="ClientApp\components\Header.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Menu.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Courses.tsx" />
+    <TypeScriptCompile Include="ClientApp\models\Course.ts" />
+    <TypeScriptCompile Include="ClientApp\store\Courses.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Lingua.Models;
 using Lingua.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Lingua.Models
+namespace Lingua.Controllers
 {
 	[Route("api/courses")]
 	public class CoursesController : Controller
