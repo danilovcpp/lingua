@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import { Well } from 'react-bootstrap';
+import { Well, Button } from 'react-bootstrap';
 import { Course } from '../../models/Course';
 
 interface CoursePreviewProps {
@@ -12,7 +12,13 @@ export class CoursePreview extends React.Component<CoursePreviewProps, {}> {
 			<Well bsSize="small">
 				<h3>{this.props.course.name}</h3>
 				<p>{this.props.course.description}</p>
+				<Button onClick={() => { this.audioElement.play() }}>Play</Button>
+				<audio id="beep" loop ref={(audio) => this.audioElement = audio}>
+					<source src="http://localhost:59635/api/courses/listen/2" type="audio/wav" />
+				</audio>
 			</Well>
 		)
 	}
+
+	audioElement: any;
 }

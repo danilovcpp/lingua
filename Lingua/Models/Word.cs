@@ -10,6 +10,7 @@ namespace Lingua.Models
 		public int Id { get; set; }
 		public string Native { get; set; }
 		public string Translation { get; set; }
+		public byte[] Audio { get; set; }
 		public Course Course { get; set; }
 	}
 }

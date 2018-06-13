@@ -41,5 +41,18 @@ namespace Lingua.Repositories
 			_context.Courses.Remove(course);
 			await _context.SaveChangesAsync();
 		}
+
+		public void Load(byte[] audio)
+		{
+			var word = new Word {Native= "test", Translation = "test2", Audio = audio};
+			_context.Words.Add(word);
+			_context.SaveChanges();
+		}
+
+		public Word GetWord(int id)
+		{
+			var word = _context.Words.FirstOrDefault(w => w.Id == id);
+			return word;
+		}
 	}
 }

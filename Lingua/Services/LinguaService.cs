@@ -36,5 +36,15 @@ namespace Lingua.Services
 		{
 			await _repository.DeleteCourse(id);
 		}
+
+		public void Load(byte[] audio)
+		{
+			_repository.Load(audio);
+		}
+
+		public Word GetWord(int id)
+		{
+			return _repository.GetWord(id);
+		}
 	}
 }

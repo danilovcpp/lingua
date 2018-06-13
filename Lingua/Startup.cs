@@ -7,6 +7,7 @@ using Lingua.Repositories;
 using Lingua.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,12 @@ namespace Lingua
 
 			services.AddTransient<ICourseRepository, CourseRepository>();
 			services.AddTransient<ILinguaService, LinguaService>();
+
+			services.Configure<FormOptions>(options =>
+			{
+				options.ValueLengthLimit = int.MaxValue; //not recommended value
+				options.MultipartBodyLengthLimit = long.MaxValue; //not recommended value
+			});
 
 			services.AddMvc();
 		}

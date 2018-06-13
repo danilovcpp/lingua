@@ -12,5 +12,7 @@ namespace Lingua.Repositories
 		Task<Course> CreateCourse(Course course);
 		Task<Course> UpdateCourse(Course course);
 		Task DeleteCourse(int id);
+		void Load(byte[] audio);
+		Word GetWord(int id);
 	}
 }
